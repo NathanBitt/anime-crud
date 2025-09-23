@@ -11,7 +11,7 @@ import java.util.List;
 public class AnimeService {
     private AnimeRepository animeRepository;
 
-    private AnimeService(AnimeRepository animeRepository) {
+    public AnimeService(AnimeRepository animeRepository) {
         this.animeRepository = animeRepository;
     }
 

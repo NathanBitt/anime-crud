@@ -12,24 +12,27 @@ public class AnimeDTO {
     private Double price;
     private Studio studio;
 
-    public AnimeDTO(){
+    public AnimeDTO() {
 
     }
 
-    public AnimeDTO(Anime anime){
+    public AnimeDTO(Anime anime) {
         this.name = anime.getName();
         this.synopsis = anime.getSynopsis();
         this.genre = anime.getGenre();
         this.volumes = anime.getVolumes();
         this.price = anime.getPrice();
+        this.studio = anime.getStudio();
+
     }
 
-    public AnimeDTO(String name, String synopsis, String genre, int volumes, Double price) {
+    public AnimeDTO(String name, String synopsis, String genre, int volumes, Double price, Studio studio) {
         this.name = name;
         this.synopsis = synopsis;
         this.genre = genre;
         this.volumes = volumes;
         this.price = price;
+        this.studio = studio;
     }
 
     public String getName() {

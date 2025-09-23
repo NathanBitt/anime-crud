@@ -14,7 +14,8 @@ public class Anime {
     private int volumes;
     private Double price;
     @ManyToOne
-    @JoinColumn(name = "studio_id")
+    @JoinColumn(name = "studio_id", nullable = false)
+    //@Column(nullable = false) isso não funciona
     private Studio studio;
 
     private Anime(){
@@ -72,5 +73,13 @@ public class Anime {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Studio getStudio() {
+        return studio;
+    }
+
+    public void setStudio(Studio studio) {
+        this.studio = studio;
     }
 }

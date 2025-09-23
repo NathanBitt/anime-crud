@@ -35,4 +35,6 @@ public class StudioDTO {
     public void setAnimeList(List<Anime> animeList) {
         this.animeList = animeList;
     }
+
+
 }
