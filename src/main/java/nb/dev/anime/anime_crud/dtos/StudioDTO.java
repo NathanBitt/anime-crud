@@ -3,11 +3,12 @@ package nb.dev.anime.anime_crud.dtos;
 import nb.dev.anime.anime_crud.entities.Anime;
 import nb.dev.anime.anime_crud.entities.Studio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudioDTO {
     private String name;
-    private List<Anime> animeList;
+    private List<AnimeMinDTO> animeList;
 
     public StudioDTO(){}
 
@@ -16,8 +17,13 @@ public class StudioDTO {
     }
 
     public StudioDTO(Studio studio){
-        this.name = studio.getName();
-        this.animeList = studio.getAnimeList();
+       this.name = studio.getName();
+       this.animeList = studio.getAnimeList().stream().map(AnimeMinDTO::new).toList();
+    }
+
+    public StudioDTO(String name, List<AnimeMinDTO> animeList) {
+        this.name = name;
+        this.animeList = animeList;
     }
 
     public String getName() {
@@ -28,11 +34,11 @@ public class StudioDTO {
         this.name = name;
     }
 
-    public List<Anime> getAnimeList() {
+    public List<AnimeMinDTO> getAnimeList() {
         return animeList;
     }
 
-    public void setAnimeList(List<Anime> animeList) {
+    public void setAnimeList(List<AnimeMinDTO> animeList) {
         this.animeList = animeList;
     }
 

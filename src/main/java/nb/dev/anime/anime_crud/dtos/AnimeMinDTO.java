@@ -3,36 +3,31 @@ package nb.dev.anime.anime_crud.dtos;
 import nb.dev.anime.anime_crud.entities.Anime;
 import nb.dev.anime.anime_crud.entities.Studio;
 
-public class AnimeDTO {
+public class AnimeMinDTO {
 
     private String name;
     private String synopsis;
     private String genre;
     private int volumes;
     private Double price;
-    private StudioMinDTO studio;
 
-    public AnimeDTO() {
-
+    public AnimeMinDTO() {
     }
 
-    public AnimeDTO(Anime anime) {
-        this.name = anime.getName();
-        this.synopsis = anime.getSynopsis();
-        this.genre = anime.getGenre();
-        this.volumes = anime.getVolumes();
-        this.price = anime.getPrice();
-        this.studio = new StudioMinDTO(anime.getStudio());
-
-    }
-
-    public AnimeDTO(String name, String synopsis, String genre, int volumes, Double price, StudioMinDTO studio) {
+    public AnimeMinDTO(String name, String synopsis, String genre, int volumes, Double price) {
         this.name = name;
         this.synopsis = synopsis;
         this.genre = genre;
         this.volumes = volumes;
         this.price = price;
-        this.studio = studio;
+    }
+
+    public AnimeMinDTO(Anime anime){
+        this.name = anime.getName();
+        this.synopsis = anime.getSynopsis();
+        this.genre = anime.getGenre();
+        this.volumes = anime.getVolumes();
+        this.price = anime.getPrice();
     }
 
     public String getName() {
@@ -73,13 +68,5 @@ public class AnimeDTO {
 
     public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public StudioMinDTO getStudio() {
-        return studio;
-    }
-
-    public void setStudio(StudioMinDTO studio) {
-        this.studio = studio;
     }
 }
