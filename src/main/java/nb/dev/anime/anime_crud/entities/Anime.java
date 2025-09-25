@@ -1,6 +1,7 @@
 package nb.dev.anime.anime_crud.entities;
 
 import jakarta.persistence.*;
+import nb.dev.anime.anime_crud.enums.AnimeStatus;
 
 @Entity
 public class Anime {
@@ -11,8 +12,9 @@ public class Anime {
     @Column(columnDefinition = "text")
     private String synopsis;
     private String genre;
-    private int volumes;
+    private int episodes;
     private Double price;
+    private AnimeStatus status;
     @ManyToOne
     @JoinColumn(name = "studio_id", nullable = false)
     //@Column(nullable = false) isso não funciona
@@ -22,11 +24,11 @@ public class Anime {
 
     }
 
-    public Anime(String name, String synopsis, String genre, int volumes, Double price, Studio studio) {
+    public Anime(String name, String synopsis, String genre, int episodes, Double price, Studio studio) {
         this.name = name;
         this.synopsis = synopsis;
         this.genre = genre;
-        this.volumes = volumes;
+        this.episodes = episodes;
         this.price = price;
         this.studio = studio;
     }
@@ -59,12 +61,12 @@ public class Anime {
         this.genre = genre;
     }
 
-    public int getVolumes() {
-        return volumes;
+    public int getEpisodes() {
+        return episodes;
     }
 
-    public void setVolumes(int volumes) {
-        this.volumes = volumes;
+    public void setEpisodes(int episodes) {
+        this.episodes = episodes;
     }
 
     public Double getPrice() {

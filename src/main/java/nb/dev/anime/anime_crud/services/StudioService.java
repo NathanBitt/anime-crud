@@ -1,6 +1,5 @@
 package nb.dev.anime.anime_crud.services;
 
-import nb.dev.anime.anime_crud.dtos.AnimeDTO;
 import nb.dev.anime.anime_crud.dtos.StudioDTO;
 import nb.dev.anime.anime_crud.entities.Studio;
 import nb.dev.anime.anime_crud.repository.StudioRepository;

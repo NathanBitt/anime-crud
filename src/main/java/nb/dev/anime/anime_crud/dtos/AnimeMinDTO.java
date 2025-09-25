@@ -1,24 +1,23 @@
 package nb.dev.anime.anime_crud.dtos;
 
 import nb.dev.anime.anime_crud.entities.Anime;
-import nb.dev.anime.anime_crud.entities.Studio;
 
 public class AnimeMinDTO {
 
     private String name;
     private String synopsis;
     private String genre;
-    private int volumes;
+    private int episodes;
     private Double price;
 
     public AnimeMinDTO() {
     }
 
-    public AnimeMinDTO(String name, String synopsis, String genre, int volumes, Double price) {
+    public AnimeMinDTO(String name, String synopsis, String genre, int episodes, Double price) {
         this.name = name;
         this.synopsis = synopsis;
         this.genre = genre;
-        this.volumes = volumes;
+        this.episodes = episodes;
         this.price = price;
     }
 
@@ -26,7 +25,7 @@ public class AnimeMinDTO {
         this.name = anime.getName();
         this.synopsis = anime.getSynopsis();
         this.genre = anime.getGenre();
-        this.volumes = anime.getVolumes();
+        this.episodes = anime.getEpisodes();
         this.price = anime.getPrice();
     }
 
@@ -54,12 +53,12 @@ public class AnimeMinDTO {
         this.genre = genre;
     }
 
-    public int getVolumes() {
-        return volumes;
+    public int getEpisodes() {
+        return episodes;
     }
 
-    public void setVolumes(int volumes) {
-        this.volumes = volumes;
+    public void setEpisodes(int episodes) {
+        this.episodes = episodes;
     }
 
     public Double getPrice() {

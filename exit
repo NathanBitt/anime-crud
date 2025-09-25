@@ -1,0 +1,17 @@
+[33mcommit 7fed7fdf21d2b5bcb897a705e50441e1879efd1c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Nathan <nathanlb.dev@gmail.com>
+Date:   Wed Sep 24 11:00:48 2025 -0300
+
+    resolvendo a recursividade do json com novos DTOS
+
+[33mcommit 58112a7b22e9edf48724543e62196535385cacd3[m
+Author: Nathan <nathanlb.dev@gmail.com>
+Date:   Tue Sep 23 18:35:05 2025 -0300
+
+    criei um monstroKKK o json está em loop
+
+[33mcommit d7939b236b2df44d9209f0cde805b187b64cce6c[m
+Author: Nathan <nathanlb.dev@gmail.com>
+Date:   Tue Sep 23 16:51:18 2025 -0300
+
+    base
