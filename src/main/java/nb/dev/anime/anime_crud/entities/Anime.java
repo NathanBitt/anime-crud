@@ -14,6 +14,7 @@ public class Anime {
     private String genre;
     private int episodes;
     private Double price;
+    @Enumerated(EnumType.STRING)
     private AnimeStatus status;
     @ManyToOne
     @JoinColumn(name = "studio_id", nullable = false)
@@ -24,13 +25,14 @@ public class Anime {
 
     }
 
-    public Anime(String name, String synopsis, String genre, int episodes, Double price, Studio studio) {
+    public Anime(String name, String synopsis, String genre, int episodes, Double price, Studio studio, AnimeStatus status) {
         this.name = name;
         this.synopsis = synopsis;
         this.genre = genre;
         this.episodes = episodes;
         this.price = price;
         this.studio = studio;
+        this.status = status;
     }
 
     public Long getId() {
@@ -83,5 +85,13 @@ public class Anime {
 
     public void setStudio(Studio studio) {
         this.studio = studio;
+    }
+
+    public AnimeStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AnimeStatus status) {
+        this.status = status;
     }
 }

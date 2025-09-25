@@ -1,6 +1,7 @@
 package nb.dev.anime.anime_crud.dtos;
 
 import nb.dev.anime.anime_crud.entities.Anime;
+import nb.dev.anime.anime_crud.enums.AnimeStatus;
 
 public class AnimeDTO {
 
@@ -9,6 +10,7 @@ public class AnimeDTO {
     private String genre;
     private int episodes;
     private Double price;
+    private AnimeStatus status;
     private StudioMinDTO studio;
 
     public AnimeDTO() {
@@ -21,8 +23,18 @@ public class AnimeDTO {
         this.genre = anime.getGenre();
         this.episodes = anime.getEpisodes();
         this.price = anime.getPrice();
+        this.status = anime.getStatus();
         this.studio = new StudioMinDTO(anime.getStudio());
+    }
 
+    public AnimeDTO(String name, String synopsis, String genre, int episodes, Double price, StudioMinDTO studio, AnimeStatus status) {
+        this.name = name;
+        this.synopsis = synopsis;
+        this.genre = genre;
+        this.episodes = episodes;
+        this.price = price;
+        this.studio = studio;
+        this.status = status;
     }
 
     public AnimeDTO(String name, String synopsis, String genre, int episodes, Double price, StudioMinDTO studio) {
@@ -80,5 +92,13 @@ public class AnimeDTO {
 
     public void setStudio(StudioMinDTO studio) {
         this.studio = studio;
+    }
+
+    public AnimeStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AnimeStatus status) {
+        this.status = status;
     }
 }

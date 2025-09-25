@@ -25,11 +25,11 @@ public class AnimeService {
     }
 
     public List<AnimeDTO> animeList() {
-        List<AnimeDTO> animeList = animeRepository.findAll()
+        return animeRepository
+                .findAll()
                 .stream()
                 .map(AnimeDTO::new)
                 .toList();
-        return animeList;
     }
 
     public AnimeDTO findAnime(Long id) {
