@@ -19,8 +19,8 @@ public class AnimeController {
     }
 
     @PostMapping("/new")
-    public AnimeDTO saveAnime(@RequestBody Anime anime) {
-        return animeService.saveAnime(anime);
+    public ResponseEntity<AnimeDTO> saveAnime(@RequestBody AnimeDTO anime) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(anime);
     }
 
     @GetMapping
@@ -40,7 +40,7 @@ public class AnimeController {
     }
 
     @PutMapping("/edit/{id}")
-    public AnimeDTO deleteAnime(@PathVariable Long id, @RequestBody Anime animeUpdated) {
+    public AnimeDTO editAnime(@PathVariable Long id, @RequestBody Anime animeUpdated) {
         return animeService.editAnime(id, animeUpdated);
     }
 }

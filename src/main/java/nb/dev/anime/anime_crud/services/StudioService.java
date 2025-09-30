@@ -4,6 +4,8 @@ import nb.dev.anime.anime_crud.dtos.StudioDTO;
 import nb.dev.anime.anime_crud.entities.Studio;
 import nb.dev.anime.anime_crud.exceptions.ResourceNotFoundException;
 import nb.dev.anime.anime_crud.repository.StudioRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +20,6 @@ public class  StudioService {
 
     public StudioDTO createStudio(Studio studio){
        Studio stdSaved = studioRepository.save(studio);
-
        return new StudioDTO(stdSaved);
 
     }

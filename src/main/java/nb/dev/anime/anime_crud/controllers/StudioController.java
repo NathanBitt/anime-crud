@@ -30,8 +30,8 @@ public class StudioController {
     }
 
     @PostMapping("/new")
-    public StudioDTO createStudio(@RequestBody Studio studio){
-        return studioService.createStudio(studio);
+    public ResponseEntity<StudioDTO> createStudio(@RequestBody StudioDTO studio){
+        return ResponseEntity.status(HttpStatus.CREATED).body(studio);
     }
 
     @DeleteMapping("/delete/{id}")
