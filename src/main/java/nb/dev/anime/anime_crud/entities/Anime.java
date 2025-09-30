@@ -21,7 +21,7 @@ public class Anime {
     //@Column(nullable = false) isso não funciona
     private Studio studio;
 
-    private Anime(){
+    public Anime(){
 
     }
 
