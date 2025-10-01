@@ -1,6 +1,7 @@
 package nb.dev.anime.anime_crud.controllers;
 
 import nb.dev.anime.anime_crud.dtos.AnimeDTO;
+import nb.dev.anime.anime_crud.dtos.AnimeSaveDTO;
 import nb.dev.anime.anime_crud.entities.Anime;
 import nb.dev.anime.anime_crud.services.AnimeService;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,8 @@ public class AnimeController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity<AnimeDTO> saveAnime(@RequestBody AnimeDTO anime) {
+    public ResponseEntity<AnimeSaveDTO> saveAnime(@RequestBody AnimeSaveDTO anime) {
+        animeService.saveAnime(anime);
         return ResponseEntity.status(HttpStatus.CREATED).body(anime);
     }
 

@@ -1,6 +1,8 @@
 package nb.dev.anime.anime_crud.services;
 
 import nb.dev.anime.anime_crud.dtos.AnimeDTO;
+import nb.dev.anime.anime_crud.dtos.AnimeSaveDTO;
+import nb.dev.anime.anime_crud.dtos.StudioMinDTO;
 import nb.dev.anime.anime_crud.entities.Anime;
 import nb.dev.anime.anime_crud.exceptions.ResourceNotFoundException;
 import nb.dev.anime.anime_crud.repository.AnimeRepository;
@@ -16,9 +18,18 @@ public class AnimeService {
         this.animeRepository = animeRepository;
     }
 
-    public AnimeDTO saveAnime(Anime anime) {
-       Anime saved = animeRepository.save(anime);
-       return new AnimeDTO(saved);
+    public AnimeSaveDTO saveAnime(AnimeSaveDTO dto) {
+        Anime anime = new Anime();
+        anime.setName(dto.getName());
+        anime.setSynopsis(dto.getSynopsis());
+        anime.setGenre(dto.getGenre());
+        anime.setEpisodes(dto.getEpisodes());
+        anime.setPrice(dto.getPrice());
+        anime.setStatus(dto.getStatus());
+        anime.setStudio(dto.getStudio());
+        animeRepository.save(anime);
+        return new AnimeSaveDTO(anime);
+
     }
 
     public void deleteAnime(Long id) {

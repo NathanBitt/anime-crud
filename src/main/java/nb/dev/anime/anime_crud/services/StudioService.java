@@ -1,6 +1,7 @@
 package nb.dev.anime.anime_crud.services;
 
 import nb.dev.anime.anime_crud.dtos.StudioDTO;
+import nb.dev.anime.anime_crud.dtos.StudioSaveDTO;
 import nb.dev.anime.anime_crud.entities.Studio;
 import nb.dev.anime.anime_crud.exceptions.ResourceNotFoundException;
 import nb.dev.anime.anime_crud.repository.StudioRepository;
@@ -18,9 +19,10 @@ public class  StudioService {
         this.studioRepository = studioRepository;
     }
 
-    public StudioDTO createStudio(Studio studio){
-       Studio stdSaved = studioRepository.save(studio);
-       return new StudioDTO(stdSaved);
+    public StudioSaveDTO createStudio(StudioSaveDTO dto){
+      Studio studio = new Studio(dto.getAnimeList(), dto.getName());
+      studioRepository.save(studio);
+      return new StudioSaveDTO(studio);
 
     }
 

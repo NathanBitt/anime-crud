@@ -1,6 +1,7 @@
 package nb.dev.anime.anime_crud.controllers;
 
 import nb.dev.anime.anime_crud.dtos.StudioDTO;
+import nb.dev.anime.anime_crud.dtos.StudioSaveDTO;
 import nb.dev.anime.anime_crud.entities.Studio;
 import nb.dev.anime.anime_crud.services.StudioService;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,8 @@ public class StudioController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity<StudioDTO> createStudio(@RequestBody StudioDTO studio){
+    public ResponseEntity<StudioSaveDTO> createStudio(@RequestBody StudioSaveDTO studio){
+        studioService.createStudio(studio);
         return ResponseEntity.status(HttpStatus.CREATED).body(studio);
     }
 
