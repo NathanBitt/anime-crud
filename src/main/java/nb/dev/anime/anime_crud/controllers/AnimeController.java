@@ -1,5 +1,6 @@
 package nb.dev.anime.anime_crud.controllers;
 
+import jakarta.validation.Valid;
 import nb.dev.anime.anime_crud.dtos.AnimeDTO;
 import nb.dev.anime.anime_crud.dtos.AnimeSaveDTO;
 import nb.dev.anime.anime_crud.entities.Anime;
@@ -20,7 +21,7 @@ public class AnimeController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity<AnimeSaveDTO> saveAnime(@RequestBody AnimeSaveDTO anime) {
+    public ResponseEntity<AnimeSaveDTO> saveAnime(@Valid @RequestBody AnimeSaveDTO anime) {
         animeService.saveAnime(anime);
         return ResponseEntity.status(HttpStatus.CREATED).body(anime);
     }
@@ -42,7 +43,7 @@ public class AnimeController {
     }
 
     @PutMapping("/edit/{id}")
-    public AnimeDTO editAnime(@PathVariable Long id, @RequestBody Anime animeUpdated) {
+    public AnimeDTO editAnime(@Valid @PathVariable Long id, @RequestBody Anime animeUpdated) {
         return animeService.editAnime(id, animeUpdated);
     }
 }

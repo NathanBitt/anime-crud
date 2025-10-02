@@ -1,6 +1,10 @@
 package nb.dev.anime.anime_crud.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import nb.dev.anime.anime_crud.enums.AnimeStatus;
 
 @Entity
@@ -8,11 +12,15 @@ public class Anime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Nome do anime não pode ser vazio")
     private String name;
     @Column(columnDefinition = "text")
     private String synopsis;
+    @NotBlank(message = "O anime precisa de um genero")
     private String genre;
+    @Min(value = 0, message = "O anime não pode ter episódios negativos")
     private int episodes;
+    @Min(value = 0, message = "O anime não pode custar um valor negativo")
     private Double price;
     @Enumerated(EnumType.STRING)
     private AnimeStatus status;
